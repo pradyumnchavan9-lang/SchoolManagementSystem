@@ -54,4 +54,52 @@ public class DataManager {
             System.out.println("Error saving student data: " + e.getMessage());
         }
     }
+
+    //--------Load Teachers---------
+    public static List<Teacher> loadTeachers(){
+        List<Teacher> teachers=new ArrayList<>();
+        File file=new File("C:\\Users\\prady\\OneDrive\\Desktop\\School_Management\\SchoolProject\\teachers.txt");
+        if(!file.exists())
+        {
+            System.out.println("No existing teacher data found. Starting fresh...");
+            return teachers;
+        }
+        try(BufferedReader br= new BufferedReader(new FileReader(file))){
+            String line;
+            while((line=br.readLine())!=null)
+            {
+                String[] parts=line.split(",");
+                if(parts.length!=4)
+                {
+                    continue;
+                }
+                String username=parts[0];
+                String password=parts[1];
+                String name=parts[2];
+                String subject=parts[3];
+
+                teachers.add(new Teacher(username,password,name,subject));
+            }
+        }catch(IOException e)
+        {
+            System.out.println("Error reading teacher data: " + e.getMessage());
+        }
+        return teachers;
+    }
+
+    //------Save Teachers-----
+    public static void saveTeachers(List<Teacher> teachers) {
+    try (BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\prady\\OneDrive\\Desktop\\School_Management\\SchoolProject\\teachers.txt"))) {
+        for (Teacher t : teachers) {
+            bw.write(t.getUsername() + "," +
+                     t.getPassword() + "," +
+                     t.getName() + "," +
+                     t.getSubject());
+            bw.newLine();
+        }
+        System.out.println("✅ Teacher data saved successfully!");
+    } catch (IOException e) {
+        System.out.println("Error saving teacher data: " + e.getMessage());
+        }
+    }
 }

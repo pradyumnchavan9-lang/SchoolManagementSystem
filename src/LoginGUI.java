@@ -35,14 +35,17 @@ public class LoginGUI extends JFrame {
         add(loginButton, BorderLayout.SOUTH);
         add(statusLabel, BorderLayout.NORTH);
 
-        // Load Data
+        // Load Student Data
         users = new ArrayList<>();
         for (Student s : DataManager.loadStudents()) {
             users.add(s);
         }
 
-        // Hardcoded teacher
-        users.add(new User("teacher1", "teach123", "Mr. Rudra", "Teacher"));
+        // Load Teacher Data
+        for(Teacher t : DataManager.loadTeachers())
+        {
+            users.add(t);
+        }
 
         loginButton.addActionListener(e -> handleLogin());
     }

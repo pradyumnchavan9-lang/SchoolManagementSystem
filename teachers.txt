@@ -1,0 +1,50 @@
+teacher1,teach123,Mr. Rudra,Mathematics
+teacher2,pass456,Ms. Aditi,Science
+teacher3,alpha789,Mr. Iyer,English
+teacher4,beta321,Ms. Kavita,History
+teacher5,delta654,Mr. Rajiv,Physics
+teacher6,gamma987,Ms. Sneha,Computer Science
+teacher7,omega432,Mr. Anil,Chemistry
+teacher8,sigma654,Ms. Meera,Biology
+teacher9,pi999,Mr. Suresh,Economics
+teacher10,theta111,Ms. Ritu,Geography
+teacher11,mu555,Mr. Abhay,Political Science
+teacher12,phi888,Ms. Neha,Physical Education
+teacher13,chi333,Mr. Arvind,Mathematics
+teacher14,psi777,Ms. Geeta,Science
+teacher15,rho222,Mr. Nikhil,Computer Science
+teacher16,eta999,Ms. Lata,English
+teacher17,zeta111,Mr. Ramesh,History
+teacher18,lambda222,Ms. Priya,Biology
+teacher19,tau333,Mr. Kunal,Physics
+teacher20,sigma444,Ms. Tanvi,Mathematics
+teacher21,delta555,Mr. Mohan,Economics
+teacher22,gamma666,Ms. Asha,Geography
+teacher23,alpha777,Mr. Vipul,Science
+teacher24,beta888,Ms. Karishma,Computer Science
+teacher25,omega999,Mr. Yogesh,English
+teacher26,theta123,Ms. Pooja,History
+teacher27,pi321,Mr. Vikas,Mathematics
+teacher28,phi654,Ms. Reema,Physics
+teacher29,mu987,Mr. Gaurav,Economics
+teacher30,nu111,Ms. Jyoti,Biology
+teacher31,xi222,Mr. Deepak,Science
+teacher32,chi333,Ms. Shruti,Computer Science
+teacher33,psi444,Mr. Aditya,Geography
+teacher34,rho555,Ms. Sakshi,Mathematics
+teacher35,eta666,Mr. Manish,History
+teacher36,zeta777,Ms. Radhika,Economics
+teacher37,lambda888,Mr. Chetan,Physics
+teacher38,tau999,Ms. Smita,English
+teacher39,sigma101,Mr. Bharat,Chemistry
+teacher40,delta202,Ms. Isha,Computer Science
+teacher41,gamma303,Mr. Tejas,Mathematics
+teacher42,alpha404,Ms. Charu,Science
+teacher43,beta505,Mr. Uday,Economics
+teacher44,omega606,Ms. Kriti,History
+teacher45,theta707,Mr. Sanjay,English
+teacher46,pi808,Ms. Mitali,Computer Science
+teacher47,phi909,Mr. Hemant,Biology
+teacher48,mu010,Ms. Disha,Physics
+teacher49,nu1111,Mr. Karan,Geography
+teacher50,xi1212,Ms. Leena,Mathematics

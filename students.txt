@@ -1,4 +1,4 @@
-student1,pass123,Pradyumn,88.5,92.0
+student1,pass123,Pradyumn,98.9,92.0
 student2,pass234,Aarav,76.0,85.5
 student3,pass345,Neha,91.0,98.2
 student4,pass456,Vihaan,69.5,80.0

@@ -1,20 +1,56 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class StudentDashboard extends JFrame {
-    public StudentDashboard(User u) {
-        setTitle("Student Dashboard - " + u.getName());
+
+    private JLabel nameLabel,usernameLabel,marksLabel,attendanceLabel;
+    private JButton logoutButton;
+
+    public StudentDashboard(User user) {
+        setTitle("Student Dashboard - " + user.getName());
         setSize(400, 300);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+        setLayout(new BorderLayout(10,10));
 
-        JLabel welcome = new JLabel("Welcome, " + u.getName() + "!", SwingConstants.CENTER);
-        JLabel info = new JLabel("You are logged in as a student.", SwingConstants.CENTER);
+        //Cast to Student if Possible 
+        Student student=(user instanceof Student)? (Student) user :null;
 
-        JPanel panel = new JPanel(new GridLayout(2, 1, 10, 10));
-        panel.add(welcome);
-        panel.add(info);
+        //Header
+        JLabel title=new JLabel("Welcome, "+ user.getName() + "!",SwingConstants.CENTER);
+        title.setFont(new Font("Segoe UI",Font.BOLD,18));
+        add(title,BorderLayout.NORTH);
 
-        add(panel, BorderLayout.CENTER);
+        //Info Panel
+        JPanel infoPanel=new JPanel(new GridLayout(4,1,10,10));
+        infoPanel.setBorder(BorderFactory.createEmptyBorder(10,30,10,30));
+
+        nameLabel=new JLabel("Name: "+user.getName());
+        usernameLabel=new JLabel("Username: "+user.getUsername());
+
+        if(student!=null)
+        {
+            marksLabel=new JLabel("Marks: "+student.getMarks());
+            attendanceLabel=new JLabel("Attendance: "+ student.getAttendancePercentage() + "%");
+        }
+        else{
+            marksLabel = new JLabel("Marks: (not available)");
+            attendanceLabel = new JLabel("Attendance: (not available)");
+        }
+
+        infoPanel.add(nameLabel);
+        infoPanel.add(usernameLabel);
+        infoPanel.add(marksLabel);
+        infoPanel.add(attendanceLabel);
+        add(infoPanel, BorderLayout.CENTER);
+
+          // Logout button
+        logoutButton = new JButton("Logout");
+        logoutButton.addActionListener(e -> {
+            dispose();
+            new LoginGUI().setVisible(true);
+        });
+        add(logoutButton, BorderLayout.SOUTH);
+        
     }
 }
