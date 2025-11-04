@@ -64,6 +64,16 @@ public class LoginGUI extends JFrame {
             }
 
             User user = DataManager.validateUser(username, password);
+            
+            if (user instanceof Student) {
+            new StudentDashboard((Student) user).setVisible(true);
+                    dispose();
+                } else if (user instanceof Teacher) {
+                    new TeacherDashboard((Teacher) user).setVisible(true);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid username or password");
+                }
 
             if (user == null) {
                 JOptionPane.showMessageDialog(this, "Invalid credentials!", "Error", JOptionPane.ERROR_MESSAGE);

@@ -8,6 +8,9 @@ public class DataManager {
 
     private static final String STUDENT_FILE = "C:\\Users\\prady\\OneDrive\\Desktop\\School_Management\\SchoolProject\\students.txt";
     private static List<Student> students = new ArrayList<>();
+    private static final String TEACHER_FILE = "C:\\Users\\prady\\OneDrive\\Desktop\\School_Management\\SchoolProject\\teachers.txt";
+    private static List<Teacher> teachers = new ArrayList<>();
+
 
     // --- Load All Students from File ---
     public static List<Student> getStudents() {
@@ -17,7 +20,40 @@ public class DataManager {
         return students;
     }
 
-public static void loadStudents() {
+    //Load Teachers
+    public static  void loadTeachers(){
+        teachers.clear();
+        File file=new File(TEACHER_FILE);
+        if (!file.exists()) {
+        System.out.println("No teachers.txt found, starting with empty list.");
+        return;
+        }
+
+        try(BufferedReader br=new BufferedReader(new FileReader(file)))
+        {
+            String line;
+            while((line=br.readLine())!=null)
+            {
+                String[] parts=line.split(",");
+                if(parts.length<4)
+                {
+                    continue;
+                }
+                String username=parts[0];
+                String password=parts[1];
+                String name=parts[2];
+                String subject=parts[3];
+
+                teachers.add(new Teacher(username, password, name, subject));
+            }
+        }catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
+
+    public static void loadStudents() {
     students.clear();
     File file = new File(STUDENT_FILE);
     if (!file.exists()) {
@@ -85,7 +121,15 @@ public static void loadStudents() {
                 return s;
             }
         }
-        // Future: add teachers as well
+            // Check teachers
+        if (teachers.isEmpty()) loadTeachers();
+        for (Teacher t : teachers) {
+            if (t.getUsername().equals(username) && t.getPassword().equals(password)) {
+            return t;
+            }
+        }
         return null;
     }
+    
+    
 }
